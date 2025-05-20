@@ -1,0 +1,67 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+     <body>
+  <header>
+    <h1>McDonald's</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="Menu.html">Menu</a>
+      <a href="#order">Order</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+      <button class="toggle-dark">🌙</button>
+    </nav>
+  </header>
+  <section class="hero" id="home">
+    <h2>Welcome to the Future of Fast Food 🍟</h2>
+    <p>Smarter. Tastier. Faster.</p>
+  </section>
+
+  <section class="order" id="order">
+    <h2>Order Now!</h2>
+    <p>Place your order directly from our menu above. Fast, easy, and delicious!</p>
+  </section>
+
+  <section class="delivery" id="delivery">
+    <h2>Delivery Info</h2>
+    <p>Get your favorite McDonald's meals delivered to your doorstep in minutes. Free delivery for orders over $20!</p>
+  </section>
+
+  <section class="location" id="location">
+    <h2>Our Locations</h2>
+    <p>Find a McDonald's near you using your device's location or by searching your zip code. We're closer than you think!</p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or feedback? Reach out via email at support@mcdonalds2.com or call 1-800-MC2-FAST.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 McDonald's All rights reserved.</p>
+  </footer>
+  <div id="item-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <h3 id="modal-title"></h3>
+    <p id="modal-desc"></p>
+    <label for="size">Select Size:</label>
+    <select id="modal-size">
+      <option value="Small">Small</option>
+      <option value="Medium" selected>Medium</option>
+      <option value="Large">Large</option>
+    </select>
+    <button id="modal-add-btn">Add to Cart</button>
+  </div>
+</div>
+  <script src="script.js"></script>
+  </body>
+  </html>
