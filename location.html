@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>McDonald's Locations</title>
+    <title>Donald's Locations</title>
     <style>
         :root {
             --primary: #ffbc0d;
@@ -251,7 +251,7 @@
 </head>
 <body>
     <header>
-        <h1>McDonald's</h1>
+        <h1>Donald's</h1>
         <nav>
             <a href="index.html">Home</a>
             <a href="Menu.html">Menu</a>
@@ -260,69 +260,33 @@
             <a href="career.html">Careers</a>
         </nav>
     </header>
-   <section class="hero" id="home">
-        <h2>Welcome to the Future of Fast Food 🍟</h2>
-        <p>Smarter. Tastier. Faster.</p>
-    </section>
-    <section class="location" id="location">
-        <h2>Our Locations</h2>
-        <p>Find a McDonald's near you using your device's location or by searching your zip code. We're closer than you think!</p>
-        <button class="get-location-btn" onclick="getLocation()">Use My Location</button>
-        <form class="search-box" onsubmit="searchLocations(event)">
-            <input type="text" id="zip" placeholder="Enter your zip code..." required>
+<section class="hero" id="home">
+      <h2>Welcome to the Future of Fast Food 🍟</h2>
+      <p>Smarter. Tastier. Faster.</p>
+ </section>
+ <section class="location" id="location">
+      <h2>Our Locations</h2>
+      <p>Find a McDonald's near you. We're closer than you think!</p>
+      <form class="search-box">
+            <input type="text" id="zip" placeholder="Enter your Country's Name" required>
             <button type="submit">Search</button>
-        </form>
-        <div class="location-list" id="locationList">
-        </div>
-    </section>
+            </form>
+            <div class="country-list" style="text-align:center; margin-bottom:1rem;">
+                <p>USA</p>
+                <p>India</p>
+                <p>Canada</p>
+                <p>Australia</p>
+                <p>United Kingdom</p>
+            </div>
+      </form>
+      <div class="location-list" id="locationList">
+      </div>
+            </form>
+            <div id="sumResult" style="margin-top:1rem; font-size:1.2rem; color:var(--secondary); font-weight:700;"></div>
+      </div>
+ </section>
     <footer>
-        <p>&copy; 2025 McDonald's. All rights reserved.</p>
+        <p>&copy; 2025 Donald's. All rights reserved.</p>
     </footer>
-    <script>
-        const locations = [
-            { name: "McDonald's Downtown", address: "123 Main St, Cityville, 12345", zip: "12345" },
-            { name: "McDonald's Uptown", address: "456 North Ave, Cityville, 12346", zip: "12346" },
-            { name: "McDonald's Riverside", address: "789 River Rd, Cityville, 12347", zip: "12347" }
-        ];
-
-        function displayLocations(filtered) {
-            const list = document.getElementById('locationList');
-            list.innerHTML = '';
-            if (filtered.length === 0) {
-                list.innerHTML = '<div class="location-card"><p>No locations found.</p></div>';
-                return;
-            }
-            filtered.forEach(loc => {
-                const card = document.createElement('div');
-                card.className = 'location-card';
-                card.innerHTML = `<h3>${loc.name}</h3><p>${loc.address}</p>`;
-                list.appendChild(card);
-            });
-        }
-
-        function searchLocations(e) {
-            e.preventDefault();
-            const zip = document.getElementById('zip').value.trim();
-            const filtered = locations.filter(loc => loc.zip.startsWith(zip));
-            displayLocations(filtered);
-        }
-
-        function getLocation() {
-            if (!navigator.geolocation) {
-                alert('Geolocation is not supported by your browser.');
-                return;
-            }
-            navigator.geolocation.getCurrentPosition(
-                (pos) => {
-
-                    displayLocations([locations[0]]);
-                },
-                () => {
-                    alert('Unable to retrieve your location.');
-                }
-            );
-        }
-        displayLocations(locations);
-    </script>
 </body>
 </html>
