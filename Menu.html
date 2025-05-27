@@ -1,131 +1,636 @@
- <!DOCTYPE html>
+<div class="menu-filter"></div>
  <html lang="en">
  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
  </head>
  <header>
     <h1>McDonald's</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="Menu.html">Menu</a>
-      <a href="#order">Order</a>
-      <a href="#delivery">Delivery</a>
-      <a href="#location">Location</a>
-      <a href="#contact">Contact</a>
-      <button class="toggle-dark">🌙</button>
+      <a href="location.html">Location</a>
+      <a href="contact.html">Contact</a>
+      <a href="career.html">Careers</a>
     </nav>
   </header>
- <body>
-     <div id="cart">🛒 Cart: <span id="cart-count">0</span></div>
-<section class="menu" id="menu"></section>
-    <h2>Our Menu</h2>    
-   <div class="menu-item">
-  <img src="Big Mac.avif" alt="Big Mac" class="menu-img" data-item="Big Mac" data-description="Two all-beef patties, special sauce, lettuce, cheese, pickles, onions on a sesame seed bun.">
-  <h3>Big Mac</h3>
-</div>
-   <div class="menu-item">
-  <img src="Quarter Pounder.avif" alt="Quarter Pounder with Cheese" class="menu-img" data-item="Quarter Pounder with Cheese" data-description="Juicy quarter pound beef patty with cheese, onions, pickles, ketchup, and mustard.">
-  <h3>McChicken</h3>
+     <section class="hero" id="home">
+        <h2>Welcome to the Future of Fast Food 🍟</h2>
+        <p>Smarter. Tastier. Faster.</p>
+    </section>
+  <style>
+:root {
+    --primary: #ffbc0d;
+    --secondary: #db0007;
+    --bg: #fff8e1;
+    --text: #222;
+    --nav-bg: #fff;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+header {
+    background: var(--nav-bg);
+    box-shadow: var(--shadow);
+    padding: 1.5rem 0 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    animation: slideDown 0.7s cubic-bezier(.77,0,.18,1) 0.1s both;
+}
+@keyframes slideDown {
+    from { transform: translateY(-60px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+header h1 {
+    color: var(--secondary);
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 2px 0 var(--primary);
+    animation: popIn 0.7s cubic-bezier(.77,0,.18,1) 0.2s both;
+}
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 0.5rem;
+}
+nav a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 24px;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+nav a:hover, nav a:focus {
+    background: var(--primary);
+    color: var(--text);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 2px 8px rgba(255,188,13,0.15);
+}
 
-</div>
-   <div class="menu-item">
-  <img src="Fillet.avif" alt="Filet-O-Fish" class="menu-img" data-item="Filet-O-Fish" data-description="Fish filet, tangy tartar sauce, and cheese on a steamed bun.">
-  <h3>Filet-O-Fish</h3>
-
-</div>
-</div>
-   <div class="menu-item">
-  <img src="Chicken.avif" alt="Chicken McNuggets" class="menu-img" data-item="Chicken McNuggets" data-description="Ten crispy chicken nuggets with your choice of dipping sauce.">
-  <h3>Chicken McNuggets</h3>
-
-</div>
-</div>
-   <div class="menu-item">
-  <img src="egg McMuffin.avif" alt="Egg McMuffin" class="menu-img" data-item="Egg McMuffin" data-description="Egg, Canadian bacon, and cheese on a toasted English muffin.">
-  <h3>Egg McMuffin</h3>
-
-</div>
+        .hero {
+            background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+            color: var(--secondary);
+            text-align: center;
+            padding: 3rem 1rem 2rem 1rem;
+            margin: 2rem auto 1.5rem auto;
+            border-radius: 24px;
+            max-width: 700px;
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
+        }
+        .hero h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            letter-spacing: 1px;
+            animation: bounceIn 0.7s cubic-bezier(.77,0,.18,1) 0.5s both;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #7a2d00;
+            letter-spacing: 0.5px;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+.menu {
+    background: #fff;
+    margin: 1.5rem auto 2rem auto;
+    padding: 2.5rem 1.5rem 2rem 1.5rem;
+    border-radius: 20px;
+    max-width: 900px;
+    box-shadow: var(--shadow);
+    animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+.menu h2 {
+    color: var(--secondary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    width: 100%;
+    text-align: center;
+}
+.menu-item {
+    background: var(--bg);
+    border-left: 6px solid var(--primary);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 2px 8px rgba(255,188,13,0.06);
+    transition: box-shadow 0.2s, transform 0.2s;
+    animation: fadeInUp 0.7s cubic-bezier(.77,0,.18,1) both;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.menu-item:hover {
+    box-shadow: 0 6px 24px rgba(255,188,13,0.15);
+    transform: translateY(-2px) scale(1.02);
+}
+.menu-item h3 {
+    color: var(--secondary);
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+    font-weight: 700;
+    text-align: center;
+}
+.menu-item p {
+    color: #555;
+    font-size: 0.98rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+.menu-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.add-to-cart {
+    background: var(--primary);
+    color: var(--secondary);
+    border: none;
+    border-radius: 20px;
+    padding: 0.7rem 1.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.7rem;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(255,188,13,0.08);
+}
+.add-to-cart:hover {
+    background: var(--secondary);
+    color: #fff;
+    transform: scale(1.05);
+}
+#cart {
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+    background: var(--primary);
+    color: var(--secondary);
+    padding: 0.7rem 1.3rem;
+    border-radius: 24px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(255,188,13,0.15);
+    z-index: 20;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+footer {
+    background: var(--secondary);
+    color: #fff;
+    text-align: center;
+    padding: 1.2rem 0;
+    width: 100%;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-top: auto;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -2px 12px rgba(219,0,7,0.08);
+    animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 1s both;
+}
+@media (max-width: 600px) {
+    .menu {
+        padding: 1.2rem 0.5rem;
+        border-radius: 12px;
+        flex-direction: column;
+        align-items: center;
+    }
+    nav {
+        gap: 1rem;
+    }
+    .menu-item {
+        width: 95vw;
+    }
+    #cart {
+        right: 0.5rem;
+        top: 1rem;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}
+.price {
+     color: #008000;
+     font-weight: 700;
+     margin: 0.3rem 0 0.5rem 0;
+     font-size: 1.1rem;
+}
+.checkout-btn {
+     background: var(--secondary);
+     color: #fff;
+     border: none;
+     border-radius: 24px;
+     padding: 0.9rem 2.2rem;
+     font-size: 1.15rem;
+     font-weight: 700;
+     cursor: pointer;
+     margin: 2rem auto 0 auto;
+     display: block;
+     transition: background 0.2s, color 0.2s, transform 0.2s;
+     box-shadow: 0 2px 8px rgba(219,0,7,0.12);
+}
+.checkout-btn:hover {
+     background: var(--primary);
+     color: var(--secondary);
+     transform: scale(1.04);
+}
+  </style>
+<body>
+    <div id="cart">
+       🛒 Cart: <span id="cart-count">0</span>
+       <button class="checkout-btn" id="checkout-btn">Checkout</button>
+    </div>
+<section class="menu" id="menu">
     <div class="menu-item">
-        <h3>Sausage Burrito</h3>
-        <img src="" alt="">
-        <p>Fluffy eggs, sausage, cheese, and veggies wrapped in a soft tortilla.</p>
-
+        <img src="Big Mac.avif" alt="Big Mac" class="menu-img" data-item="Big Mac" data-description="Two all-beef patties, special sauce, lettuce, cheese, pickles, onions on a sesame seed bun.">
+        <h3>Big Mac</h3>
+        <p>Two all-beef patties, special sauce, lettuce, cheese, pickles, and onions on a sesame seed bun.</p>
+        <button class="add-to-cart" data-item="Big Mac">Add to Cart</button>
     </div>
     <div class="menu-item">
-        <h3>McFlurry</h3>
-        <img src="" alt="">
-        <p>Vanilla soft serve blended with your choice of Oreo or M&M's.</p>
-
+        <img src="Quarter Pounder.avif" alt="Quarter Pounder with Cheese" class="menu-img" data-item="Quarter Pounder with Cheese" data-description="Juicy quarter pound beef patty with cheese, onions, pickles, ketchup, and mustard.">
+        <h3>Quarter Pounder with Cheese</h3>
+        <p>Juicy quarter pound beef patty with cheese, onions, pickles, ketchup, and mustard on a toasted bun.</p>
+        <button class="add-to-cart" data-item="Quarter Pounder with Cheese">Add to Cart</button>
     </div>
     <div class="menu-item">
-        <h3>Apple Pie</h3>
-        <img src="" alt="">
-        <p>Warm, flaky pastry filled with sweet apple filling.</p>
-
+        <img src="Double Quarter Pounder.avif" alt="Double Quarter Pounder with Cheese" class="menu-img" data-item="Double Quarter Pounder with Cheese" data-description="Two quarter pound beef patties, two slices of cheese, onions, pickles, ketchup, and mustard.">
+        <h3>Double Quarter Pounder with Cheese</h3>
+        <p>Two quarter pound beef patties, two slices of cheese, onions, pickles, ketchup, and mustard.</p>
+        <button class="add-to-cart" data-item="Double Quarter Pounder with Cheese">Add to Cart</button>
     </div>
     <div class="menu-item">
-        <h3>Side Salad</h3>
-        <img src="" alt="">
-        <p>Fresh mixed greens, grape tomatoes, and shredded cheese with your choice of dressing.</p>
-
+        <img src="Cheeseburger.avif" alt="Cheeseburger" class="menu-img" data-item="Cheeseburger" data-description="Beef patty, cheese, pickles, onions, ketchup, and mustard.">
+        <h3>Cheeseburger</h3>
+        <p>Beef patty, cheese, pickles, onions, ketchup, and mustard.</p>
+        <button class="add-to-cart" data-item="Cheeseburger">Add to Cart</button>
     </div>
     <div class="menu-item">
-        <h3>Deluxe Crispy Chicken Sandwich</h3>
-        <img src="" alt="">
-        <p>Crispy chicken breast, lettuce, tomato, and mayo on a potato bun.</p>
-
+        <img src="Hamburger.avif" alt="Hamburger" class="menu-img" data-item="Hamburger" data-description="Beef patty, pickles, onions, ketchup, and mustard.">
+        <h3>Hamburger</h3>
+        <p>Beef patty, pickles, onions, ketchup, and mustard.</p>
+        <button class="add-to-cart" data-item="Hamburger">Add to Cart</button>
     </div>
     <div class="menu-item">
-        <h3>Spicy McChicken</h3>
-        <img src="" alt="">
-        <p>Spicy chicken patty with lettuce and mayo on a toasted bun.</p>
-
-    </div>
-    <div class="menu-item">
+        <img src="Double Cheeseburger.avif" alt="Double Cheeseburger" class="menu-img" data-item="Double Cheeseburger" data-description="Two beef patties, two slices of cheese, pickles, onions, ketchup, and mustard.">
         <h3>Double Cheeseburger</h3>
-        <img src="" alt="">
         <p>Two beef patties, two slices of cheese, pickles, onions, ketchup, and mustard.</p>
-
+        <button class="add-to-cart" data-item="Double Cheeseburger">Add to Cart</button>
     </div>
     <div class="menu-item">
+        <img src="McDouble.avif" alt="McDouble" class="menu-img" data-item="McDouble" data-description="Two beef patties, one slice of cheese, pickles, onions, ketchup, and mustard.">
+        <h3>McDouble</h3>
+        <p>Two beef patties, one slice of cheese, pickles, onions, ketchup, and mustard.</p>
+        <button class="add-to-cart" data-item="McDouble">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Bacon McDouble.avif" alt="Bacon McDouble" class="menu-img" data-item="Bacon McDouble" data-description="Two beef patties, bacon, cheese, pickles, onions, ketchup, and mustard.">
+        <h3>Bacon McDouble</h3>
+        <p>Two beef patties, bacon, cheese, pickles, onions, ketchup, and mustard.</p>
+        <button class="add-to-cart" data-item="Bacon McDouble">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="McChicken.avif" alt="McChicken" class="menu-img" data-item="McChicken" data-description="Crispy chicken patty, lettuce, and mayo on a toasted bun.">
+        <h3>McChicken</h3>
+        <p>Crispy chicken patty, lettuce, and mayo on a toasted bun.</p>
+        <button class="add-to-cart" data-item="McChicken">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Spicy McChicken.avif" alt="Spicy McChicken" class="menu-img" data-item="Spicy McChicken" data-description="Spicy chicken patty with lettuce and mayo on a toasted bun.">
+        <h3>Spicy McChicken</h3>
+        <p>Spicy chicken patty with lettuce and mayo on a toasted bun.</p>
+        <button class="add-to-cart" data-item="Spicy McChicken">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Crispy Chicken Sandwich.avif" alt="Crispy Chicken Sandwich" class="menu-img" data-item="Crispy Chicken Sandwich" data-description="Crispy chicken breast, pickles, and butter on a potato bun.">
+        <h3>Crispy Chicken Sandwich</h3>
+        <p>Crispy chicken breast, pickles, and butter on a potato bun.</p>
+        <button class="add-to-cart" data-item="Crispy Chicken Sandwich">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Deluxe Crispy Chicken Sandwich.avif" alt="Deluxe Crispy Chicken Sandwich" class="menu-img" data-item="Deluxe Crispy Chicken Sandwich" data-description="Crispy chicken breast, lettuce, tomato, and mayo on a potato bun.">
+        <h3>Deluxe Crispy Chicken Sandwich</h3>
+        <p>Crispy chicken breast, lettuce, tomato, and mayo on a potato bun.</p>
+        <button class="add-to-cart" data-item="Deluxe Crispy Chicken Sandwich">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Spicy Deluxe Crispy Chicken Sandwich.avif" alt="Spicy Deluxe Crispy Chicken Sandwich" class="menu-img" data-item="Spicy Deluxe Crispy Chicken Sandwich" data-description="Spicy crispy chicken breast, lettuce, tomato, and mayo on a potato bun.">
+        <h3>Spicy Deluxe Crispy Chicken Sandwich</h3>
+        <p>Spicy crispy chicken breast, lettuce, tomato, and mayo on a potato bun.</p>
+        <button class="add-to-cart" data-item="Spicy Deluxe Crispy Chicken Sandwich">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Chicken McNuggets.avif" alt="Chicken McNuggets" class="menu-img" data-item="Chicken McNuggets" data-description="Ten crispy chicken nuggets with your choice of dipping sauce.">
+        <h3>Chicken McNuggets (10 pc)</h3>
+        <p>Ten crispy chicken nuggets served with your choice of dipping sauce.</p>
+        <button class="add-to-cart" data-item="Chicken McNuggets">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Chicken McNuggets 20.avif" alt="Chicken McNuggets 20 pc" class="menu-img" data-item="Chicken McNuggets 20 pc" data-description="Twenty crispy chicken nuggets with your choice of dipping sauce.">
+        <h3>Chicken McNuggets (20 pc)</h3>
+        <p>Twenty crispy chicken nuggets served with your choice of dipping sauce.</p>
+        <button class="add-to-cart" data-item="Chicken McNuggets 20 pc">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Filet-O-Fish.avif" alt="Filet-O-Fish" class="menu-img" data-item="Filet-O-Fish" data-description="Fish filet, tangy tartar sauce, and cheese on a steamed bun.">
+        <h3>Filet-O-Fish</h3>
+        <p>Fish filet topped with tangy tartar sauce and cheese on a steamed bun.</p>
+        <button class="add-to-cart" data-item="Filet-O-Fish">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="McRib.avif" alt="McRib" class="menu-img" data-item="McRib" data-description="Pork rib patty, BBQ sauce, onions, and pickles on a hoagie bun.">
+        <h3>McRib</h3>
+        <p>Pork rib patty, BBQ sauce, onions, and pickles on a hoagie bun.</p>
+        <button class="add-to-cart" data-item="McRib">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Egg McMuffin.avif" alt="Egg McMuffin" class="menu-img" data-item="Egg McMuffin" data-description="Egg, Canadian bacon, and cheese on a toasted English muffin.">
+        <h3>Egg McMuffin</h3>
+        <p>Egg, Canadian bacon, and cheese on a toasted English muffin.</p>
+        <button class="add-to-cart" data-item="Egg McMuffin">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Sausage McMuffin.avif" alt="Sausage McMuffin" class="menu-img" data-item="Sausage McMuffin" data-description="Sausage patty and cheese on a toasted English muffin.">
+        <h3>Sausage McMuffin</h3>
+        <p>Sausage patty and cheese on a toasted English muffin.</p>
+        <button class="add-to-cart" data-item="Sausage McMuffin">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Sausage McMuffin with Egg.avif" alt="Sausage McMuffin with Egg" class="menu-img" data-item="Sausage McMuffin with Egg" data-description="Sausage patty, egg, and cheese on a toasted English muffin.">
+        <h3>Sausage McMuffin with Egg</h3>
+        <p>Sausage patty, egg, and cheese on a toasted English muffin.</p>
+        <button class="add-to-cart" data-item="Sausage McMuffin with Egg">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Bacon Egg Cheese Biscuit.avif" alt="Bacon, Egg & Cheese Biscuit" class="menu-img" data-item="Bacon, Egg & Cheese Biscuit" data-description="Bacon, egg, and cheese on a warm biscuit.">
+        <h3>Bacon, Egg & Cheese Biscuit</h3>
+        <p>Bacon, egg, and cheese on a warm biscuit.</p>
+        <button class="add-to-cart" data-item="Bacon, Egg & Cheese Biscuit">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Sausage Biscuit.avif" alt="Sausage Biscuit" class="menu-img" data-item="Sausage Biscuit" data-description="Sausage patty on a warm biscuit.">
+        <h3>Sausage Biscuit</h3>
+        <p>Sausage patty on a warm biscuit.</p>
+        <button class="add-to-cart" data-item="Sausage Biscuit">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Sausage Egg Cheese Biscuit.avif" alt="Sausage, Egg & Cheese Biscuit" class="menu-img" data-item="Sausage, Egg & Cheese Biscuit" data-description="Sausage, egg, and cheese on a warm biscuit.">
+        <h3>Sausage, Egg & Cheese Biscuit</h3>
+        <p>Sausage, egg, and cheese on a warm biscuit.</p>
+        <button class="add-to-cart" data-item="Sausage, Egg & Cheese Biscuit">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Bacon Egg Cheese McGriddles.avif" alt="Bacon, Egg & Cheese McGriddles" class="menu-img" data-item="Bacon, Egg & Cheese McGriddles" data-description="Bacon, egg, and cheese between sweet griddle cakes.">
+        <h3>Bacon, Egg & Cheese McGriddles</h3>
+        <p>Bacon, egg, and cheese between sweet griddle cakes.</p>
+        <button class="add-to-cart" data-item="Bacon, Egg & Cheese McGriddles">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Sausage McGriddles.avif" alt="Sausage McGriddles" class="menu-img" data-item="Sausage McGriddles" data-description="Sausage patty between sweet griddle cakes.">
+        <h3>Sausage McGriddles</h3>
+        <p>Sausage patty between sweet griddle cakes.</p>
+        <button class="add-to-cart" data-item="Sausage McGriddles">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Sausage Egg Cheese McGriddles.avif" alt="Sausage, Egg & Cheese McGriddles" class="menu-img" data-item="Sausage, Egg & Cheese McGriddles" data-description="Sausage, egg, and cheese between sweet griddle cakes.">
+        <h3>Sausage, Egg & Cheese McGriddles</h3>
+        <p>Sausage, egg, and cheese between sweet griddle cakes.</p>
+        <button class="add-to-cart" data-item="Sausage, Egg & Cheese McGriddles">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Hotcakes.avif" alt="Hotcakes" class="menu-img" data-item="Hotcakes" data-description="Three fluffy pancakes served with butter and syrup.">
         <h3>Hotcakes</h3>
         <p>Three fluffy pancakes served with butter and syrup.</p>
-
+        <button class="add-to-cart" data-item="Hotcakes">Add to Cart</button>
     </div>
     <div class="menu-item">
+        <img src="Hotcakes Sausage.avif" alt="Hotcakes and Sausage" class="menu-img" data-item="Hotcakes and Sausage" data-description="Three pancakes with sausage patty, butter, and syrup.">
+        <h3>Hotcakes and Sausage</h3>
+        <p>Three pancakes with sausage patty, butter, and syrup.</p>
+        <button class="add-to-cart" data-item="Hotcakes and Sausage">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Sausage Burrito.avif" alt="Sausage Burrito" class="menu-img" data-item="Sausage Burrito" data-description="Fluffy eggs, sausage, cheese, and veggies wrapped in a soft tortilla.">
+        <h3>Sausage Burrito</h3>
+        <p>Fluffy eggs, sausage, cheese, and veggies wrapped in a soft tortilla.</p>
+        <button class="add-to-cart" data-item="Sausage Burrito">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Hash Browns.avif" alt="Hash Browns" class="menu-img" data-item="Hash Browns" data-description="Golden, crispy hash brown patties.">
         <h3>Hash Browns</h3>
         <p>Golden, crispy hash brown patties.</p>
-
+        <button class="add-to-cart" data-item="Hash Browns">Add to Cart</button>
     </div>
     <div class="menu-item">
+        <img src="Fruit Maple Oatmeal.avif" alt="Fruit & Maple Oatmeal" class="menu-img" data-item="Fruit & Maple Oatmeal" data-description="Oatmeal with diced apples, cranberries, and two varieties of raisins.">
+        <h3>Fruit & Maple Oatmeal</h3>
+        <p>Oatmeal with diced apples, cranberries, and two varieties of raisins.</p>
+        <button class="add-to-cart" data-item="Fruit & Maple Oatmeal">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Side Salad.avif" alt="Side Salad" class="menu-img" data-item="Side Salad" data-description="Fresh mixed greens, grape tomatoes, and shredded cheese with your choice of dressing.">
+        <h3>Side Salad</h3>
+        <p>Fresh mixed greens, grape tomatoes, and shredded cheese with your choice of dressing.</p>
+        <button class="add-to-cart" data-item="Side Salad">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Apple Slices.avif" alt="Apple Slices" class="menu-img" data-item="Apple Slices" data-description="Fresh apple slices.">
+        <h3>Apple Slices</h3>
+        <p>Fresh apple slices.</p>
+        <button class="add-to-cart" data-item="Apple Slices">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="French Fries.avif" alt="French Fries" class="menu-img" data-item="French Fries" data-description="World famous golden, crispy fries.">
+        <h3>French Fries</h3>
+        <p>World famous golden, crispy fries.</p>
+        <button class="add-to-cart" data-item="French Fries">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Mozzarella Sticks.avif" alt="Mozzarella Sticks" class="menu-img" data-item="Mozzarella Sticks" data-description="Crispy breaded mozzarella cheese sticks.">
+        <h3>Mozzarella Sticks</h3>
+        <p>Crispy breaded mozzarella cheese sticks.</p>
+        <button class="add-to-cart" data-item="Mozzarella Sticks">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Apple Pie.avif" alt="Apple Pie" class="menu-img" data-item="Apple Pie" data-description="Warm, flaky pastry filled with sweet apple filling.">
+        <h3>Apple Pie</h3>
+        <p>Warm, flaky pastry filled with sweet apple filling.</p>
+        <button class="add-to-cart" data-item="Apple Pie">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Baked Apple Pie.avif" alt="Baked Apple Pie" class="menu-img" data-item="Baked Apple Pie" data-description="Classic baked apple pie with a crispy crust.">
+        <h3>Baked Apple Pie</h3>
+        <p>Classic baked apple pie with a crispy crust.</p>
+        <button class="add-to-cart" data-item="Baked Apple Pie">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="McFlurry.avif" alt="McFlurry" class="menu-img" data-item="McFlurry" data-description="Vanilla soft serve blended with your choice of Oreo or M&M's.">
+        <h3>McFlurry (Oreo or M&M's)</h3>
+        <p>Vanilla soft serve blended with your choice of Oreo or M&M's.</p>
+        <button class="add-to-cart" data-item="McFlurry">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Vanilla Cone.avif" alt="Vanilla Cone" class="menu-img" data-item="Vanilla Cone" data-description="Creamy vanilla soft serve in a crispy cone.">
         <h3>Vanilla Cone</h3>
         <p>Creamy vanilla soft serve in a crispy cone.</p>
-
+        <button class="add-to-cart" data-item="Vanilla Cone">Add to Cart</button>
     </div>
     <div class="menu-item">
+        <img src="Hot Fudge Sundae.avif" alt="Hot Fudge Sundae" class="menu-img" data-item="Hot Fudge Sundae" data-description="Vanilla soft serve topped with hot fudge.">
+        <h3>Hot Fudge Sundae</h3>
+        <p>Vanilla soft serve topped with hot fudge.</p>
+        <button class="add-to-cart" data-item="Hot Fudge Sundae">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Hot Caramel Sundae.avif" alt="Hot Caramel Sundae" class="menu-img" data-item="Hot Caramel Sundae" data-description="Vanilla soft serve topped with hot caramel.">
+        <h3>Hot Caramel Sundae</h3>
+        <p>Vanilla soft serve topped with hot caramel.</p>
+        <button class="add-to-cart" data-item="Hot Caramel Sundae">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Strawberry Shake.avif" alt="Strawberry Shake" class="menu-img" data-item="Strawberry Shake" data-description="Creamy strawberry shake topped with whipped cream.">
+        <h3>Strawberry Shake</h3>
+        <p>Creamy strawberry shake topped with whipped cream.</p>
+        <button class="add-to-cart" data-item="Strawberry Shake">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Chocolate Shake.avif" alt="Chocolate Shake" class="menu-img" data-item="Chocolate Shake" data-description="Rich and creamy chocolate shake topped with whipped cream.">
         <h3>Chocolate Shake</h3>
         <p>Rich and creamy chocolate shake topped with whipped cream.</p>
-
+        <button class="add-to-cart" data-item="Chocolate Shake">Add to Cart</button>
     </div>
     <div class="menu-item">
+        <img src="Vanilla Shake.avif" alt="Vanilla Shake" class="menu-img" data-item="Vanilla Shake" data-description="Classic vanilla shake topped with whipped cream.">
+        <h3>Vanilla Shake</h3>
+        <p>Classic vanilla shake topped with whipped cream.</p>
+        <button class="add-to-cart" data-item="Vanilla Shake">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Sweet Tea.avif" alt="Sweet Tea" class="menu-img" data-item="Sweet Tea" data-description="Refreshing sweetened iced tea.">
         <h3>Sweet Tea</h3>
         <p>Refreshing sweetened iced tea.</p>
-
+        <button class="add-to-cart" data-item="Sweet Tea">Add to Cart</button>
     </div>
     <div class="menu-item">
+        <img src="Iced Coffee.avif" alt="Iced Coffee" class="menu-img" data-item="Iced Coffee" data-description="Premium roast coffee served over ice.">
+        <h3>Iced Coffee</h3>
+        <p>Premium roast coffee served over ice.</p>
+        <button class="add-to-cart" data-item="Iced Coffee">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Coffee.avif" alt="Coffee" class="menu-img" data-item="Coffee" data-description="Freshly brewed hot coffee.">
         <h3>Coffee</h3>
         <p>Freshly brewed hot coffee.</p>
-
+        <button class="add-to-cart" data-item="Coffee">Add to Cart</button>
     </div>
     <div class="menu-item">
+        <img src="Orange Juice.avif" alt="Orange Juice" class="menu-img" data-item="Orange Juice" data-description="100% pure orange juice.">
+        <h3>Orange Juice</h3>
+        <p>100% pure orange juice.</p>
+        <button class="add-to-cart" data-item="Orange Juice">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Milk.avif" alt="Milk" class="menu-img" data-item="Milk" data-description="Low fat white milk.">
+        <h3>Milk</h3>
+        <p>Low fat white milk.</p>
+        <button class="add-to-cart" data-item="Milk">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Chocolate Milk.avif" alt="Chocolate Milk" class="menu-img" data-item="Chocolate Milk" data-description="Low fat chocolate milk.">
+        <h3>Chocolate Milk</h3>
+        <p>Low fat chocolate milk.</p>
+        <button class="add-to-cart" data-item="Chocolate Milk">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Bottled Water.avif" alt="Bottled Water" class="menu-img" data-item="Bottled Water" data-description="Pure, refreshing bottled water.">
         <h3>Bottled Water</h3>
         <p>Pure, refreshing bottled water.</p>
-
+        <button class="add-to-cart" data-item="Bottled Water">Add to Cart</button>
     </div>
-  </section>
+    <div class="menu-item">
+        <img src="Coke.avif" alt="Coca-Cola" class="menu-img" data-item="Coca-Cola" data-description="Classic Coca-Cola soft drink.">
+        <h3>Coca-Cola</h3>
+        <p>Classic Coca-Cola soft drink.</p>
+        <button class="add-to-cart" data-item="Coca-Cola">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Diet Coke.avif" alt="Diet Coke" class="menu-img" data-item="Diet Coke" data-description="Diet Coca-Cola soft drink.">
+        <h3>Diet Coke</h3>
+        <p>Diet Coca-Cola soft drink.</p>
+        <button class="add-to-cart" data-item="Diet Coke">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Sprite.avif" alt="Sprite" class="menu-img" data-item="Sprite" data-description="Lemon-lime Sprite soft drink.">
+        <h3>Sprite</h3>
+        <p>Lemon-lime Sprite soft drink.</p>
+        <button class="add-to-cart" data-item="Sprite">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Fanta Orange.avif" alt="Fanta Orange" class="menu-img" data-item="Fanta Orange" data-description="Orange flavored Fanta soft drink.">
+        <h3>Fanta Orange</h3>
+        <p>Orange flavored Fanta soft drink.</p>
+        <button class="add-to-cart" data-item="Fanta Orange">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Dr Pepper.avif" alt="Dr Pepper" class="menu-img" data-item="Dr Pepper" data-description="Classic Dr Pepper soft drink.">
+        <h3>Dr Pepper</h3>
+        <p>Classic Dr Pepper soft drink.</p>
+        <button class="add-to-cart" data-item="Dr Pepper">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="Hi-C Orange Lavaburst.avif" alt="Hi-C Orange Lavaburst" class="menu-img" data-item="Hi-C Orange Lavaburst" data-description="Fruit drink with orange flavor.">
+        <h3>Hi-C Orange Lavaburst</h3>
+        <p>Fruit drink with orange flavor.</p>
+        <button class="add-to-cart" data-item="Hi-C Orange Lavaburst">Add to Cart</button>
+    </div>
+ <script src="script.js"></script>
  </body>
+ <footer>
+       <p>&copy; 2025 McDonald's All rights reserved.</p>
+</footer>
  </html>
- in order now   <button class="add-to-cart" data-item="Big Mac">Add to Cart</button>
